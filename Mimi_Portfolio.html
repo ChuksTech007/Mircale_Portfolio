@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miracle Okpala – Customer Experience Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAF7F4;
+      --bg2: #FDF5F0;
+      --panel: #FFFFFF;
+      --panel-border: rgba(0,0,0,0.07);
+      --text: #1E1A18;
+      --text-soft: rgba(30,26,24,0.58);
+      --accent: #B5717B;
+      --accent-dark: #9A5863;
+      --accent-soft: rgba(181,113,123,0.10);
+      --gold: #C9A96E;
+      --gold-soft: rgba(201,169,110,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.07);
+      --shadow-sm: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 80% 10%, rgba(181,113,123,0.07), transparent 40%),
+                  radial-gradient(circle at 10% 90%, rgba(201,169,110,0.06), transparent 36%),
+                  linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1.2rem 3rem;
+      background: rgba(250,247,244,0.82);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--panel-border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      padding: 130px 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      top: 5%;
+      right: -15%;
+      border-radius: 50%;
+      background: rgba(181,113,123,0.08);
+      filter: blur(40px);
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      bottom: -8%;
+      left: -10%;
+      border-radius: 50%;
+      background: rgba(201,169,110,0.07);
+      filter: blur(36px);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 660px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .heading-primary {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 6.5vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .heading-primary em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.95rem 2rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .button-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(181,113,123,0.28);
+    }
+    .button-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(181,113,123,0.34);
+    }
+    .button-secondary {
+      border: 1.5px solid rgba(30,26,24,0.14);
+      background: rgba(255,255,255,0.7);
+      color: var(--text);
+    }
+    .button-secondary:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    /* ── PROFILE CARD ── */
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 1.4rem;
+      align-self: center;
+    }
+    .profile-card {
+      display: grid;
+      gap: 1rem;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 32px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--accent-soft);
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .profile-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .profile-card p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .profile-resume-btn {
+      justify-self: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 26px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .panel h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+    .panel p {
+      color: var(--text-soft);
+      line-height: 1.85;
+      font-size: 0.92rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .stat {
+      padding: 1.4rem 1.5rem;
+      background: var(--panel);
+      border-radius: 22px;
+      border: 1px solid var(--panel-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .stat strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      line-height: 1;
+    }
+    .stat span {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 5.5rem 4rem;
+      position: relative;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      max-width: 720px;
+      color: var(--text);
+    }
+    .section-copy {
+      max-width: 680px;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+      font-size: 0.97rem;
+    }
+
+    /* ── CARDS ── */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+    .card p {
+      color: var(--text-soft);
+      line-height: 1.85;
+      font-size: 0.94rem;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.8rem 0 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .card li {
+      position: relative;
+      padding-left: 1.3rem;
+      color: var(--text-soft);
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+    .card li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── SKILL PILLS ── */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+    .skill-pill {
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(181,113,123,0.18);
+      color: var(--text);
+      font-size: 0.87rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .skill-pill:hover { background: rgba(181,113,123,0.18); transform: translateY(-2px); }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.4rem;
+    }
+    .contact-box {
+      display: grid;
+      gap: 1.2rem;
+      padding: 2rem;
+      background: var(--panel);
+      border-radius: 26px;
+      border: 1px solid var(--panel-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+    }
+    .contact-box p {
+      color: var(--text-soft);
+      line-height: 1.85;
+      font-size: 0.94rem;
+    }
+    .contact-item {
+      padding: 1rem 1.2rem;
+      border-radius: 18px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(181,113,123,0.12);
+    }
+    .contact-item strong {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .contact-item span {
+      color: var(--text);
+      font-size: 0.93rem;
+    }
+    .contact-form { display: grid; gap: 1rem; }
+    .form-group { display: grid; gap: 0.45rem; }
+    .form-label {
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border: 1.5px solid rgba(30,26,24,0.12);
+      background: var(--bg);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.93rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(181,113,123,0.1);
+    }
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .submit-btn {
+      align-self: flex-start;
+      padding: 0.95rem 1.9rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+    .submit-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(181,113,123,0.28);
+    }
+    .form-note {
+      color: var(--text-soft);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(181,113,123,0.2), transparent);
+      margin: 0 4rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--panel-border);
+      margin-top: 2rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1080px) {
+      .hero { grid-template-columns: 1fr; padding: 120px 2.5rem 3rem; }
+      .hero-panel { order: -1; }
+      nav { padding: 1rem 2rem; }
+    }
+    @media (max-width: 760px) {
+      .hero { padding: 108px 1.5rem 2.5rem; }
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.5rem; }
+      .section-divider { margin: 0 1.5rem; }
+      .grid-3, .contact-grid { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Miracle Okpala</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <div class="eyebrow">Customer Experience Specialist</div>
+      <h1 class="heading-primary">Miracle<br><i>Okpala</i></h1>
+      <p class="hero-copy">I design empathetic customer journeys and turn every interaction into a memorable brand moment. With expertise in CX strategy, support operations, and people enablement, I help teams deliver service that feels human and reliable.</p>
+      <div class="hero-buttons">
+        <a class="button button-primary" href="#contact">Let's Talk</a>
+        <a class="button button-secondary" href="#experience">Explore Experience</a>
+        <a class="button button-secondary" href="Miracle_Okpala_Resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="profile-card">
+        <div class="profile-photo">
+          <img src="Mimi.jpg" alt="Miracle Okpala">
+        </div>
+        <div class="profile-name">Miracle Okpala</div>
+        <p>Customer experience leader shaping support teams and journeys that feel reliable, thoughtful, and human.</p>
+        <a class="button button-secondary profile-resume-btn" href="Miracle_Okpala_Resume.pdf" download>Download Resume</a>
+      </div>
+
+      <div class="panel">
+        <h3>Core Strengths</h3>
+        <p>High-touch support design · Voice of customer research · Process optimization · Training and coaching · Cross-functional alignment.</p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><strong>95%</strong><span>Customer Satisfaction</span></div>
+        <div class="stat"><strong>4.8</strong><span>Avg CSAT Score</span></div>
+        <div class="stat"><strong>120+</strong><span>Projects Delivered</span></div>
+        <div class="stat"><strong>8</strong><span>Years of Experience</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="section-label">What I do</div>
+    <h2 class="section-title">Customer experience with clarity and warmth.</h2>
+    <p class="section-copy">I blend strategic insight with practical service design so teams can scale support without losing the personal touch. Every recommendation is built around real people, real behaviour, and measurable impact.</p>
+
+    <div class="grid-3">
+      <article class="card">
+        <h3>Strategy & Insights</h3>
+        <p>Turning feedback into prioritised action, aligning support goals to customer needs, and building measurable roadmaps for growth.</p>
+      </article>
+      <article class="card">
+        <h3>Service Design</h3>
+        <p>Mapping journeys, simplifying processes, and designing support experiences that feel intuitive at every step.</p>
+      </article>
+      <article class="card">
+        <h3>Coaching & Enablement</h3>
+        <p>Creating training curricula, playbooks, and feedback loops so teams feel confident and connected to customer outcomes.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">Recent roles that shaped my customer-first approach.</h2>
+
+    <div class="grid-3">
+      <article class="card">
+        <span class="badge">CX Team · Growth</span>
+        <h3>Customer Experience Lead</h3>
+        <p><strong>Global Retail Services</strong></p>
+        <ul>
+          <li>Designed an omnichannel support model across 5 markets.</li>
+          <li>Reduced response times by 30% while improving quality.</li>
+          <li>Launched service excellence standards for frontline teams.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="badge">Support Operations</span>
+        <h3>Senior Support Specialist</h3>
+        <p><strong>Software & SaaS Operations</strong></p>
+        <ul>
+          <li>Improved first-contact resolution by 22%.</li>
+          <li>Introduced coaching sessions that boosted team confidence.</li>
+          <li>Built processes for faster escalation and follow-up.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="badge">Administration</span>
+        <h3>Administrative Support</h3>
+        <p><strong>General Office & Operations</strong></p>
+        <ul>
+          <li>Accurate data entry and maintenance of records across multiple systems.</li>
+          <li>Managed scheduling, correspondence, and document filing.</li>
+          <li>Supported daily office operations ensuring smooth workflow.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Skills that accelerate customer loyalty.</h2>
+
+    <div class="grid-3">
+      <article class="card">
+        <h3>Customer Tools</h3>
+        <div class="pill-group">
+          <span class="skill-pill">Zendesk</span>
+          <span class="skill-pill">Salesforce</span>
+          <span class="skill-pill">Intercom</span>
+          <span class="skill-pill">Slack</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Experience Methods</h3>
+        <div class="pill-group">
+          <span class="skill-pill">Journey Mapping</span>
+          <span class="skill-pill">NPS & CSAT</span>
+          <span class="skill-pill">Voice of Customer</span>
+          <span class="skill-pill">Process Audits</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Team Enablement</h3>
+        <div class="pill-group">
+          <span class="skill-pill">Coaching</span>
+          <span class="skill-pill">Playbooks</span>
+          <span class="skill-pill">Workshops</span>
+          <span class="skill-pill">Mentoring</span>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Administrative Skills</h3>
+        <div class="pill-group">
+          <span class="skill-pill">Data Entry</span>
+          <span class="skill-pill">Record Keeping</span>
+          <span class="skill-pill">Scheduling</span>
+          <span class="skill-pill">Filing & Documentation</span>
+          <span class="skill-pill">MS Office Suite</span>
+          <span class="skill-pill">Google Workspace</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Connect</div>
+    <h2 class="section-title">Ready to create memorable customer moments.</h2>
+
+    <div class="contact-grid">
+      <div class="contact-box">
+        <h3>Let's build stronger customer relationships.</h3>
+        <p>Whether you need CX leadership, process refinement, or more consistent service delivery, I can help you make every experience count.</p>
+        <div class="contact-item"><strong>Email</strong><span>okpalamiracle28@gmail.com</span></div>
+        <div class="contact-item"><strong>Phone</strong><span>+234 800 000 0000</span></div>
+        <div class="contact-item"><strong>Location</strong><span>Lagos, Nigeria</span></div>
+      </div>
+      <div class="contact-box">
+        <h3>Send a message</h3>
+        <form class="contact-form" action="https://formsubmit.co/okpalamiracle28@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New message from your portfolio">
+          <input type="hidden" name="_next" value="thank-you.html">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Send Message</button>
+          <div class="form-note">This form sends your message directly to Miracle using FormSubmit.co.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>Designed with care · Miracle Okpala · Customer Experience Specialist</footer>
+
+</body>
+</html>
